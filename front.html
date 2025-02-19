@@ -1,8 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>成績查詢系統</title>
+</head>
+<body>
+    <h1>成績查詢系統</h1>
+    <form id="searchForm">
+        <label for="studentId">輸入學號：</label>
+        <input type="text" id="studentId" name="studentId" required>
+        <button type="submit">查詢</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const studentId = document.getElementById('studentId').value;
+
+            fetch('/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ student_id: studentId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                let result = document.getElementById('result');
+                if (data.error) {
+                    result.innerText = data.error;
+                } else {
+                    result.innerHTML = `
+                        <p>聽力成績: ${data.listening_score}</p>
+                        <p>閱讀成績: ${data.reading_score}</p>
+                        <p>總成績: ${data.total_score}</p>
+                    `;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <title>成績查詢系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #4682b4;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            margin-right: 10px;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #4682b4;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5a9bd5;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <h1>成績查詢系統</h1>
