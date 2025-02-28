@@ -3,6 +3,13 @@ const { Pool } = require('pg');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
+// 提供 front.html 當作首頁
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'front.html'));
+});
+
 // 使用資料庫連接資訊
 const pool = new Pool({
     connectionString: 'postgresql://toeic_score_user:FsgMhnWBlNPYhg8vHHqKK3TTV8QgRwFk@dpg-cv0j89dumphs739q623g-a/toeic_score',
