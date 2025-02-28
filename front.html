@@ -206,7 +206,7 @@
             const studentId = document.getElementById('studentId').value; // 取得輸入的學號
 
             // 呼叫後端 API
-            fetch('http://localhost:10000/search', { // 替換為你的後端 API URL
+            fetch('postgresql://toeic_score_user:FsgMhnWBlNPYhg8vHHqKK3TTV8QgRwFk@dpg-cv0j89dumphs739q623g-a/toeic_score', { // 替換為你的後端 API URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
