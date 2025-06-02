@@ -75,7 +75,7 @@ app.post('/search', async (req, res) => {
 
     try {
         // 執行資料庫查詢
-        const query = 'SELECT listening, reading, total FROM toeic_score WHERE id = $1';
+        const query = 'SELECT listening, reading, total FROM students_scores WHERE id = $1';
         const result = await pool.query(query, [student_id]);
 
         // 傳回查詢結果或錯誤訊息
