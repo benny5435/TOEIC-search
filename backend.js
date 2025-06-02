@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 
 // 設定資料庫連接資訊
 const pool = new Pool({
-    connectionString: 'postgresql://toeic_score_user:FsgMhnWBlNPYhg8vHHqKK3TTV8QgRwFk@dpg-cv0j89dumphs739q623g-a/toeic_score',
+    connectionString: 'postgresql://students_scores_user:EhSlv8R4mvevVAl0WUvNBWnUh3Nibnfr@dpg-d0uojgadbo4c73bqsk30-a/students_scores',
     ssl: { rejectUnauthorized: false }, // 啟用 SSL 並關閉 SSL 憑證驗證以支援雲端資料庫
 });
 
